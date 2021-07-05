@@ -36,7 +36,9 @@ from datetime import datetime
 
 a_date_seg = vim.eval('a:date_seg')
 a_time_seg = vim.eval('a:time_seg')
-timestamp = datetime.timestamp(f'{a_date_seg} {a_time_seg}')
+dt_str = f'{a_date_seg} {a_time_seg}'
+dt = datetime.strptime(dt_str, "%Y-%m-%d %H:%M:%S")
+timestamp = int(datetime.timestamp(dt))
 print(f'timestamp: {timestamp}')
 
 endOfPython
